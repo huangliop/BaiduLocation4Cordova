@@ -31,11 +31,12 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 				if(action.equals("startLocation")){	
 					mLocationClient = new LocationClient(cordova.getActivity().getApplicationContext());     //声明LocationClient类
 				    mLocationClient.registerLocationListener( this );    //注册监听函数
+				    
 				    LocationClientOption option = new LocationClientOption();
 				    option.setLocationMode(LocationMode.Hight_Accuracy);//设置定位模式
-				    option.setCoorType("bd09ll");//返回的定位结果是百度经纬度,默认值gcj02
+				    option.setCoorType(args.getString(0));//返回的定位结果是百度经纬度,默认值gcj02
 				    option.setScanSpan(5000);//设置发起定位请求的间隔时间为5000ms
-				    option.setIsNeedAddress(true);//返回的定位结果包含地址信息
+				    option.setIsNeedAddress(args.getBoolean(1));//返回的定位结果包含地址信息
 				    option.setNeedDeviceDirect(false);//返回的定位结果包含手机机头的方向
 				    mLocationClient.setLocOption(option);
 				    mLocationClient.start();
@@ -62,7 +63,7 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 					double la=arg0.getLatitude();
 					double lo=arg0.getLongitude();
 					try {
-						JSONObject object=new JSONObject("{latitude:"+la+",longitude:"+lo+"}");
+						JSONObject object=new JSONObject("{latitude:"+la+",longitude:"+lo+",address:"+arg0.getAddrStr()+"}");
 						callbackContext.success(object);
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
