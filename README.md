@@ -1,4 +1,4 @@
-使用的百度Android定位SDK 5.01
-在AndroidManifest.xml中的
-<meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="key:开发者申请的key" />
-修改为自己申请的百度Key
+浣跨敤鐨勭櫨搴ndroid瀹氫綅SDK 5.01  
+鍦ˋndroidManifest.xml涓殑
+<meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="key:寮�鍙戣�呯敵璇风殑key" />
+淇敼涓鸿嚜宸辩敵璇风殑鐧惧害Key
