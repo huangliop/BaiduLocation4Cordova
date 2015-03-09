@@ -8,7 +8,7 @@ window.baiduLocation.startLocation(
         }, function (error) {  
             alert(error);  
         },{//这个参数也可以不传  
-            CoorType:'bd0911', //设置坐标系默认'bd0911'  
+            CoorType:'bd09ll', //设置坐标系默认'bd09ll'  
             IsNeedAddress:false //是否需要返回坐标的地址信息，默认是false  
         });    
 返回的结果格式    
