@@ -15,8 +15,8 @@ import com.baidu.location.LocationClientOption.LocationMode;
  
 
 /** 
- * Ê¹ÓÃ°Ù¶ÈAndroid¶¨Î» SDK5 
- * @version Create£º2015.2.2  
+ * ä½¿ç”¨ç™¾åº¦Androidå®šä½ SDK5 
+ * @version Createï¼š2015.2.2  
  */
 public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationListener {
 	
@@ -29,15 +29,15 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 			this.callbackContext=callbackContext;
 			try {
 				if(action.equals("startLocation")){	
-					mLocationClient = new LocationClient(cordova.getActivity().getApplicationContext());     //ÉùÃ÷LocationClientÀà
-				    mLocationClient.registerLocationListener( this );    //×¢²á¼àÌıº¯Êı
+					mLocationClient = new LocationClient(cordova.getActivity().getApplicationContext());     //å£°æ˜LocationClientç±»
+				    mLocationClient.registerLocationListener( this );    //æ³¨å†Œç›‘å¬å‡½æ•°
 				    
 				    LocationClientOption option = new LocationClientOption();
-				    option.setLocationMode(LocationMode.Hight_Accuracy);//ÉèÖÃ¶¨Î»Ä£Ê½
-				    option.setCoorType(args.getString(0));//·µ»ØµÄ¶¨Î»½á¹ûÊÇ°Ù¶È¾­Î³¶È,Ä¬ÈÏÖµgcj02
-				    option.setScanSpan(5000);//ÉèÖÃ·¢Æğ¶¨Î»ÇëÇóµÄ¼ä¸ôÊ±¼äÎª5000ms
-				    option.setIsNeedAddress(args.getBoolean(1));//·µ»ØµÄ¶¨Î»½á¹û°üº¬µØÖ·ĞÅÏ¢
-				    option.setNeedDeviceDirect(false);//·µ»ØµÄ¶¨Î»½á¹û°üº¬ÊÖ»ú»úÍ·µÄ·½Ïò
+				    option.setLocationMode(LocationMode.Hight_Accuracy);//è®¾ç½®å®šä½æ¨¡å¼
+				    option.setCoorType(args.getString(0));//è¿”å›çš„å®šä½ç»“æœæ˜¯ç™¾åº¦ç»çº¬åº¦,é»˜è®¤å€¼gcj02
+				    //option.setScanSpan(5000);//è®¾ç½®å‘èµ·å®šä½è¯·æ±‚çš„é—´éš”æ—¶é—´ä¸º5000ms
+				    option.setIsNeedAddress(args.getBoolean(1));//è¿”å›çš„å®šä½ç»“æœåŒ…å«åœ°å€ä¿¡æ¯
+				    option.setNeedDeviceDirect(false);//è¿”å›çš„å®šä½ç»“æœåŒ…å«æ‰‹æœºæœºå¤´çš„æ–¹å‘
 				    mLocationClient.setLocOption(option);
 				    mLocationClient.start();
 				    mLocationClient.requestLocation();
@@ -49,7 +49,7 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				callbackContext.error("¶¨Î»Ê§°Ü");
+				callbackContext.error("å®šä½å¤±è´¥");
 			}
 			return false;
 		}
@@ -68,13 +68,13 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-						callbackContext.error("¶¨Î»Ê§°Ü");
+						callbackContext.error("å®šä½å¤±è´¥");
 					}
 				}else { 
-					callbackContext.error("¶¨Î»Ê§°Ü");
+					callbackContext.error("å®šä½å¤±è´¥");
 				} 
 			}else {
-				callbackContext.error("¶¨Î»Ê§°Ü");
+				callbackContext.error("å®šä½å¤±è´¥");
 			} 
 			mLocationClient.stop();
 			mLocationClient.unRegisterLocationListener(this);
