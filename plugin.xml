@@ -31,7 +31,7 @@
 			<uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
         </config-file>
 		 <source-file src="libs/locSDK_5.01.jar" target-dir="libs"/>
-		 <source-file src="libs/arm64-v8a/liblocSDK5.so" target-dir="libs/arm63-v8a"/>
+		 <source-file src="libs/arm64-v8a/liblocSDK5.so" target-dir="libs/arm64-v8a"/>
 		 <source-file src="libs/armeabi/liblocSDK5.so" target-dir="libs/armeabi"/>
 		 <source-file src="libs/armeabi-v7a/liblocSDK5.so" target-dir="libs/armeabi-v7a"/>
 		 <source-file src="libs/mips/liblocSDK5.so" target-dir="libs/mips"/>
