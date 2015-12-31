@@ -6,6 +6,7 @@
     <js-module name="BaiduLocation4Cordova" src="www/baidulocation.js">
         <clobbers target="window.baiduLocation"/>
     </js-module>
+    <preference name="API_KEY" />
     <platform name="android">
         <source-file src="src/android/BaiduLocation4Cordova.java" target-dir="src/com/cordova/plugin/baidulocation"/>
 		
