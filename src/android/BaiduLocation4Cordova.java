@@ -1,17 +1,17 @@
 package com.cordova.plugin.baidulocation;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.location.LocationClientOption.LocationMode;
+
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin; 
+import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient; 
-import com.baidu.location.LocationClientOption;
-import com.baidu.location.LocationClientOption.LocationMode;
  
 
 /** 
@@ -49,7 +49,7 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				callbackContext.error("定位失败");
+				callbackContext.error(buildErrorRuselut(-1,"发起定位失败"));
 			}
 			return false;
 		}
@@ -68,16 +68,26 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-						callbackContext.error("定位失败");
+						callbackContext.error(buildErrorRuselut(-1,"定位结果异常"));
 					}
 				}else { 
-					callbackContext.error("定位失败");
+					callbackContext.error(buildErrorRuselut(type,"百度定位发送错误"));
 				} 
 			}else {
-				callbackContext.error("定位失败");
+				callbackContext.error(buildErrorRuselut(-1,"定位结果为空"));
 			} 
 			mLocationClient.stop();
 			mLocationClient.unRegisterLocationListener(this);
-		} 
+		}
+	private JSONObject buildErrorRuselut(int code ,String msg){
+		JSONObject object=new JSONObject();
+		try {
+			object.put("code",code);
+			object.put("msg",msg);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return object;
+	}
 }
 
