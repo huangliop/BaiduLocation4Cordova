@@ -1,4 +1,4 @@
-#使用的百度Android定位SDK 5.01  
+#使用的百度Android定位SDK 6.2.3 
        
 ##安装方法
 
