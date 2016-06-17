@@ -26,5 +26,8 @@
     {  
         latitude: 13.4324, //纬度  
         longitude:23.4324, //经度  
-        address:"北京北京" /地址信息  
+        address:"北京北京市武侯区" //地址信息
+        city: "北京市",
+        cityCode: 132, 
+        province: "北京"
     }

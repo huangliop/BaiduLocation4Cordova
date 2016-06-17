@@ -113,7 +113,7 @@ public class BaiduLocation4Cordova extends CordovaPlugin implements BDLocationLi
 					double la=arg0.getLatitude();
 					double lo=arg0.getLongitude();
 					try {
-						JSONObject object=new JSONObject("{latitude:"+la+",longitude:"+lo+",address:"+arg0.getAddrStr()+"}");
+						JSONObject object=new JSONObject("{latitude:"+la+",longitude:"+lo+",address:"+arg0.getAddrStr()+",province:"+arg0.getProvince()+",city:"+arg0.getCity()+",cityCode:"+arg0.getCityCode()+" }");
 						callbackContext.success(object);
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
